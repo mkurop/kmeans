@@ -178,9 +178,15 @@ class KMeans:
             
 if __name__ == "__main__":
 
-    train_set = np.random.randn(10,1000000).astype(np.float32)
+    NUMBER_OF_TRAIN_POINTS = 1000000
+
+    DIMENSION_OF_TRAIN_POINTS = 10
+
+    REQUESTED_NUMBER_OF_CENTROIDS = 100
+
+    train_set = np.random.randn(DIMENSION_OF_TRAIN_POINTS,NUMBER_OF_TRAIN_POINTS).astype(np.float32)
     
-    initial_codebook = kmeanspp_numpy.kmeanspp(train_set,100)     
+    initial_codebook = kmeanspp_numpy.kmeanspp(train_set,REQUESTED_NUMBER_OF_CENTROIDS)     
 
     codebook = KMeans(train_set,initial_codebook)
 
