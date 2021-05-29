@@ -4,6 +4,7 @@ KMeans algorithm for computing a codebook based on a training set.
 # Requirements
 
 * NumPy
+* CuPy
 
 # Example use of the class
 
@@ -23,6 +24,14 @@ To run the demo, go to the <repo_root>/src directory and invoke
 ```
 python3 kmeans_numpy.py
 ```
+
+or
+
+```
+python3 kmeans_cupy.py
+```
+
+for a GPU version of the algorithm.
 
 # Benchmark
 Problem size:
