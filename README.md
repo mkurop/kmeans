@@ -16,3 +16,9 @@ initial_codebook = kmeanspp_numpy.kmeanspp(train_set,REQUESTED_NUMBER_OF_CENTROI
 codebook = KMeans(train_set,initial_codebook)                                                                                                                                                                                            │~                             
 cb = codebook.train()         
 ```
+
+To run the demo, got to the <repo_root>/src directory and invoke
+
+```
+python3 kmeans_numpy.py
+```
