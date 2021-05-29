@@ -34,4 +34,4 @@ CPU wall clock time: 1m35s
 
 NVIDIA TITAN RTX GPU wall clock time: 9s
 
-GPU is almost 10x faster
+GPU is more than 10x faster
