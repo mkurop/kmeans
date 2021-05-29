@@ -1,5 +1,5 @@
 # kmeans
-KMeans algorithm for computing a codebook based on a training set, using NumPy.
+KMeans algorithm for computing a codebook based on a training set.
 
 # Requirements
 
@@ -10,10 +10,11 @@ KMeans algorithm for computing a codebook based on a training set, using NumPy.
 ```
 NUMBER_OF_TRAIN_POINTS = 1000000                                                                                                                                                                        
 DIMENSION_OF_TRAIN_POINTS = 10                                                                                                                                                                             
-REQUESTED_NUMBER_OF_CENTROIDS = 100                                                                                                                                                                                                      │~                             
-train_set = np.random.randn(DIMENSION_OF_TRAIN_POINTS,NUMBER_OF_TRAIN_POINTS).astype(np.float32)                                                                                                                                         │~                             
-initial_codebook = kmeanspp_numpy.kmeanspp(train_set,REQUESTED_NUMBER_OF_CENTROIDS)                                                                                                                                                      │~                             
-codebook = KMeans(train_set,initial_codebook)                                                                                                                                                                                            │~                             
+REQUESTED_NUMBER_OF_CENTROIDS = 100               
+
+train_set = np.random.randn(DIMENSION_OF_TRAIN_POINTS,NUMBER_OF_TRAIN_POINTS).astype(np.float32)                                                                                                                                                      
+initial_codebook = kmeanspp_numpy.kmeanspp(train_set,REQUESTED_NUMBER_OF_CENTROIDS)                                                                                                                                                                           
+codebook = KMeans(train_set,initial_codebook)                                                                                                                                                                                                           
 cb = codebook.train()         
 ```
 
