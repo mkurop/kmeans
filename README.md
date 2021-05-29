@@ -23,3 +23,14 @@ To run the demo, go to the <repo_root>/src directory and invoke
 ```
 python3 kmeans_numpy.py
 ```
+
+# Benchmark
+Problem size:
+* number of codevectors: 100
+* dimension of codevectors: 10
+* size of the training set: 1mln vectors
+
+CPU wall clock time: 1m35s
+NVIDIA TITAN RTX GPU wall clock time: 9s
+
+GPU is almost 10x faster
