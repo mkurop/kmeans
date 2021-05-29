@@ -31,6 +31,7 @@ Problem size:
 * size of the training set: 1mln vectors
 
 CPU wall clock time: 1m35s
+
 NVIDIA TITAN RTX GPU wall clock time: 9s
 
 GPU is almost 10x faster
