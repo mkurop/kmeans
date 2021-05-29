@@ -9,8 +9,9 @@ as initialization algorithm.
 
 import random
 import site
+import os
 
-site.addsitedir("../kmeanspp/src")
+site.addsitedir(os.path.join(os.path.dirname(os.path.abspath(__file__)), "../kmeanspp/src"))
 import kmeanspp_numpy
 import numpy as np
 
