@@ -76,7 +76,7 @@ class KMeans:
         # below statement results in KxMxd tensor, K - number of codevectors, M- number of training points\
         # d - dimension of the train points
         self._diffs = self._codebook[np.newaxis,...].transpose((2,0,1)) - \
-                                               self.train_set[np.newaxis,...].transpose((0,2,1))
+                                               self.train_set[np.newaxis,...].transpose((0,1,2))
 
     def _get_distances_squared(self):
 

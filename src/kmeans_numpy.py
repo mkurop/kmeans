@@ -14,6 +14,20 @@ import os
 site.addsitedir(os.path.join(os.path.dirname(os.path.abspath(__file__)), "../kmeanspp/src"))
 import kmeanspp_numpy
 import numpy as np
+from numba import njit, prange
+
+@njit(parallel=True)
+def diff(ts : np.ndarray, cb : np.ndarray) -> np.ndarray:
+
+    dist = np.zeros((cb.shape[1],ts.shape[1]),dtype=np.float32)
+
+    for i in range(cb.shape[1]):
+        for j in prange(ts.shape[1]):
+            diff = ts[:,j] - cb[:,i]
+            dist[i,j] = np.sum(diff*diff)
+
+    return dist
+
 
 class KMeans:
 
@@ -76,11 +90,15 @@ class KMeans:
         # below statement results in KxMxd tensor, K - number of codevectors, M- number of training points\
         # d - dimension of the train points
         self._diffs = self._codebook[np.newaxis,...].transpose((2,0,1)) - \
-                                               self.train_set[np.newaxis,...].transpose((0,2,1))
+                                               self.train_set[np.newaxis,...].transpose((0,1,2))
 
     def _get_distances_squared(self):
 
         self._distances_squared = np.sum(self._diffs * self._diffs, axis = 2)
+
+    def _get_distances_squared_numba(self):
+
+        self._distances_squared = diff(self._train_set,self._codebook)
 
     def _assign_train_vectors_to_voronoi_regions(self):
 
@@ -153,9 +171,9 @@ class KMeans:
 
         while True:
 
-            self._get_diffs()
+            #  self._get_diffs()
 
-            self._get_distances_squared()
+            self._get_distances_squared_numba()
 
             self._get_distortion()
 
