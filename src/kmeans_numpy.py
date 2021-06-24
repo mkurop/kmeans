@@ -21,7 +21,7 @@ def diff(ts : np.ndarray, cb : np.ndarray) -> np.ndarray:
 
     dist = np.zeros((cb.shape[1],ts.shape[1]),dtype=np.float32)
 
-    for i in range(cb.shape[1]):
+    for i in prange(cb.shape[1]):
         for j in prange(ts.shape[1]):
             diff = ts[:,j] - cb[:,i]
             dist[i,j] = np.sum(diff*diff)
